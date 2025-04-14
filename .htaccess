@@ -1,0 +1,13 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Redirect to HTTPS if not already
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    
+    # Redirect root URL to index.php
+    RewriteRule ^$ index.php?page=home [L]
+    
+    RewriteRule ^tentang$ index.php?page=about [L]
+    RewriteRule ^about index.php?page=about [L]
+</IfModule>
